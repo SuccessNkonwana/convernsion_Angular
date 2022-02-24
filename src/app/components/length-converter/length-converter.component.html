@@ -1,0 +1,59 @@
+
+
+<div class="container">
+	<div class="conversionBlock">
+	  <form class="form-inline" role="form" [formGroup]="length" (ngSubmit)="onSubmit(length)">
+		<div class="form-group">
+		  <label for="value">Length:&nbsp;</label>
+		  <input type="number" formControlName="lengthValue" placeholder="Enter length">
+		</div>
+		&nbsp;&nbsp;
+		<div class="form-group">
+		  <label for="base">Convert from:&nbsp;</label>
+		  <select formControlName="choiceFrom">
+			<option [ngValue]="null" disabled>-- Select from unit --</option>
+			<option *ngFor="let fromL of fromLength;let i = index" [ngValue]="fromL">{{fromL}}</option>
+		  </select>
+		</div>
+        &nbsp;&nbsp;
+		<div class="form-group">
+		  <label for="base">Convert to:&nbsp;</label>
+		  <select formControlName="choiceTo">
+			<option [ngValue]="null" disabled>-- Select to unit --</option>
+			<option *ngFor="let toL of toLength;let i = index" [ngValue]="toL">{{toL}}</option>
+		  </select>
+		</div>
+		&nbsp;&nbsp;
+		<div class="form-group">
+		  <button type="submit" class="btn btn-primary" style="padding-left: 15px;padding-right: 15px;">Convert</button>
+		</div>
+        &nbsp;&nbsp;
+		<div class="form-group">
+		  <h4>Converted length : {{convertedLenth}}</h4>
+		</div>
+        
+	  </form>
+	</div>
+	<!-- <div class="lengthTable">
+	  <table class="table table-bordered">
+		<thead>
+		  <tr>
+			<th scope="col">#</th>
+			
+			<th scope="col">Country Currency </th>
+			<th scope="col">Base Rate</th>
+			<th scope="col">Converted Rate</th>
+		  </tr>
+		</thead>
+		<tbody *ngFor="let data of convertedRates; let i = index">
+		  <tr>
+			<th scope="row">{{i + 1}}</th>
+			
+			<td>{{data.countryCode}}</td>
+			<td>{{data.baseCountryRate}}</td>
+			<td><span>{{data.convertedCountryRate | currency:data.countryCode }}</span></td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div> -->
+  </div>
